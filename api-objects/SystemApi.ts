@@ -1,6 +1,6 @@
 import { request, APIRequestContext, expect } from '@playwright/test';
 
-const apiBaseUrl = process.env.API_BASE_URL!;
+const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 const seedInfo = 'seed-info'
 const reset = '_reset';
 const health = 'health';

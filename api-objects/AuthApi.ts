@@ -3,7 +3,7 @@ import { request, APIRequestContext, expect } from '@playwright/test';
 import { RegistrationScenario, RegistrationRole, LoginScenario } from '../types/index';
 import { loadFixture } from '../utils/fixtureLoader';
 
-const apiBaseUrl = process.env.API_BASE_URL!;
+const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 
 const register = 'auth/register';
 const login = 'auth/login';

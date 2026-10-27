@@ -1,7 +1,7 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import { SellerProductsScenario, SortDirection } from '../types';
 
-const apiBaseUrl = process.env.API_BASE_URL!;
+const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 const products = 'products';
 
 export interface ProductList {

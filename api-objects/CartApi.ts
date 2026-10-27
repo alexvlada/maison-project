@@ -1,7 +1,7 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import { AddItemScenario } from '../types';
 
-const apiBaseUrl = process.env.API_BASE_URL!;
+const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 const items = '/cart/items';
 const cart = '/cart'; 
 const remove = 'cart/items/'

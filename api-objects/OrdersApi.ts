@@ -3,7 +3,7 @@ import { addItemToCart, clearCart, getCart } from './CartApi';
 import { loadFixture } from '../utils/fixtureLoader';
 import { PlaceOrderScenario  } from '../types';
 
-const apiBaseUrl = 'http://localhost:4000/api/v1';
+const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 const orders = '/orders';
 
 export interface OrderItem {
