@@ -1,0 +1,18 @@
+{
+  "sellerId": 1,
+  "sellerName": "Atelier Maison",
+  "expectedCount": 11,
+  "products": [
+    { "id": 1, "name": "Noir Saffiano Tote", "category": "Bags" },
+    { "id": 2, "name": "Aurum Chronograph Watch", "category": "Watches" },
+    { "id": 3, "name": "Cashmere Opera Scarf", "category": "Accessories" },
+    { "id": 4, "name": "Veluto Silk Eau de Parfum", "category": "Fragrance" },
+    { "id": 5, "name": "Onyx Leather Derby", "category": "Footwear" },
+    { "id": 6, "name": "Marble Atelier Sunglasses", "category": "Accessories" },
+    { "id": 7, "name": "Provence Linen Blazer", "category": "Apparel" },
+    { "id": 8, "name": "Celeste Pearl Drop Earrings", "category": "Jewellery" },
+    { "id": 9, "name": "Stone Calf Bucket Bag", "category": "Bags" },
+    { "id": 10, "name": "Ivory Croc Clutch", "category": "Bags" },
+    { "id": 11, "name": "Silver Moon Watch", "category": "Watches" }
+  ]
+}

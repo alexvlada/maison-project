@@ -1,0 +1,10 @@
+{
+  "email": "{{email}}",
+  "password": "{{password}}",
+  "firstName": "Demo",
+  "lastName": "User",
+  "dateOfBirth": "{{dateOfBirth}}",
+  "role": "{{role}}",
+  "gender": "male",
+  "phone": "{{phone}}"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "email": { "type": "string", "format": "email" },
+    "name": { "type": "string" },
+    "role": { "type": "string", "enum": ["buyer", "seller"] },
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "gender": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "enum": ["male", "female"] }
+      ]
+    },
+    "phone": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string" }
+      ]
+    },
+    "dateOfBirth": { "type": "string" }
+  },
+  "required": ["id", "email", "name", "role", "firstName", "lastName", "dateOfBirth"],
+  "additionalProperties": false
+}

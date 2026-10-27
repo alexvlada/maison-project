@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "cart": {
+      "type": "object",
+      "properties": {
+        "cartId": { "type": "number" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": { "type": "number" },
+              "productId": { "type": "number" },
+              "name": { "type": "string" },
+              "image": { "type": "string" },
+              "unitCents": { "type": "number" },
+              "quantity": { "type": "number", "minimum": 1 },
+              "lineCents": { "type": "number" },
+              "stock": { "type": "number" }
+            },
+            "required": ["itemId", "productId", "name", "unitCents", "quantity", "lineCents", "stock"],
+            "additionalProperties": false
+          }
+        },
+        "subtotalCents": { "type": "number" },
+        "count": { "type": "number" }
+      },
+      "required": ["cartId", "items", "subtotalCents", "count"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["cart"],
+  "additionalProperties": false
+}
