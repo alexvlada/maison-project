@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const FIXTURES_PATH = 'C:/maison-project/fixtures/';
+const FIXTURES_PATH = path.join(__dirname, '../fixtures');
 
 /**
  // Loads any fixture file by name

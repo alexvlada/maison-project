@@ -1,30 +1,32 @@
 
 import { request, APIRequestContext, expect } from '@playwright/test';
-import fs from 'fs';
-import path from 'path';
 import { RegistrationScenario, RegistrationRole, LoginScenario } from '../types/index';
+import { loadFixture } from '../utils/fixtureLoader';
 
 const apiBaseUrl = process.env.API_BASE_URL!;
 
 const register = 'auth/register';
 const login = 'auth/login';
 const me = 'auth/me';
-const fixurePath = 'C:/maison-project/fixtures/';
 
 export class UserData {
   
- 
 async newUserRegistration(scenario: RegistrationScenario,
                           fixure: string,
                           email: string, 
                           password: string,
                           role: RegistrationRole,
                           phone: string,
-                          dateOfBirth: string)
+                          dateOfBirth: string) : Promise<void>
 {
-    const filePath = path.join(fixurePath + fixure + '.JSON');
-    const raw = fs.readFileSync(filePath, 'utf-8');
-    const userData = JSON.parse(raw);
+    // Load the registration fixture
+    const userData = loadFixture<{
+      email: string;
+      password: string;
+      role: string;
+      phone: string;
+      dateOfBirth: string;
+    }>(fixure);
 
     const userDataParam = JSON.parse(
       JSON.stringify(userData)
@@ -206,21 +208,6 @@ async getCurrentUser(
   return body.user || body;
     
 }
-
-
-
-
-
-  
-  
-
-
- 
-
-
-
-
-
 
 }
 

@@ -1,4 +1,5 @@
 import { APIRequestContext, expect } from '@playwright/test';
+import { SellerProductsScenario, SortDirection } from '../types';
 
 const apiBaseUrl = process.env.API_BASE_URL!;
 const products = 'products';
@@ -121,13 +122,6 @@ export async function getProductCategories(
   return body;
 }
 
-/**
- * Returns the list of products for the currently logged-in seller
- * Requires a seller session
- */
-
-export type SellerProductsScenario = 'happyFlow' | 'forbiddenRole';
-
 export async function getSellerProducts(
   scenario: SellerProductsScenario,
   apiContext: APIRequestContext
@@ -181,8 +175,6 @@ export async function getSellerProducts(
   return body;
 
 }
-
-export type SortDirection = 'asc' | 'desc';
 
 export interface SimplifiedProduct {
   id: number;

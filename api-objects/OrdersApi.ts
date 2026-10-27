@@ -1,6 +1,7 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import { addItemToCart, clearCart, getCart } from './CartApi';
 import { loadFixture } from '../utils/fixtureLoader';
+import { PlaceOrderScenario  } from '../types';
 
 const apiBaseUrl = 'http://localhost:4000/api/v1';
 const orders = '/orders';
@@ -37,9 +38,6 @@ export interface PaymentDetails {
   method: string;  // npr. 'mock-card'
   token: string;   // npr. 'demo'
 }
-
-// Checkout - creates an order from the current cart
-export type PlaceOrderScenario = 'happyFlow' | 'emptyCart';
 
 export async function placeOrder(
   scenario: PlaceOrderScenario,
@@ -107,7 +105,7 @@ export async function placeOrderWithSetup(
   // 2. Clear the cart
   await clearCart(apiContext);
 
-  // 3. Add all products
+  // 3. Add all productsOrder
   for (const item of items) {
     await addItemToCart('happyFlow', apiContext, item.productId, item.quantity);
   }

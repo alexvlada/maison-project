@@ -1,9 +1,8 @@
 import { test, expect, request } from '@playwright/test';
-import fs from 'fs';
-import path from 'path';
 import { UserData } from '../../api-objects/AuthApi';
 import { addItemToCart, addMultipleItems, removeItemFromCart, clearCart, getCart } from '../../api-objects/CartApi';
 import { resetDatabase, checkHealth } from '../../api-objects/SystemApi';
+import { loadArrayFixture } from '../../utils/fixtureLoader';
 
 let userData: UserData;
 userData = new UserData();
@@ -31,10 +30,8 @@ test.beforeEach(async () => {
 
 test.describe('Cart API test suite', () => {
 
-  const fixurePath = process.env.FIXURE_PATH!;
-
   test('Add single item to cart', async () => {
-    // 1. Log in as buyer
+    // Log in as buyer
     const apiContext = await userData.loginUser('happyFlow', 'buyer@maison.test', 'Password123!');
 
     try {
@@ -62,11 +59,8 @@ test.describe('Cart API test suite', () => {
     const apiContext = await userData.loginUser('happyFlow', 'buyer@maison.test', 'Password123!');
 
     try {
-      const fixtureName = 'items';
-      const filePath = path.join(fixurePath, fixtureName + '.json');
-      const raw = fs.readFileSync(filePath, 'utf-8');
-      const products = JSON.parse(raw);
 
+      const products = loadArrayFixture<{ productId: number; quantity: number }>('items'); 
       await addMultipleItems(apiContext, products);
 
       const cart = await getCart(apiContext);
@@ -129,12 +123,9 @@ test('Clear cart', async () => {
   );
 
   try {
-    
-    const fixtureName = 'items_5'; // 5 items
-    const filePath = path.join(fixurePath, fixtureName + '.json');
-    const raw = fs.readFileSync(filePath, 'utf-8');
-    const products = JSON.parse(raw);
-    
+ 
+    const products = loadArrayFixture<{ productId: number; quantity: number }>('items_5');
+
     // add the items
     await addMultipleItems(apiContext, products);
 

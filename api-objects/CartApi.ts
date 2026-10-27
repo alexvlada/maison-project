@@ -1,11 +1,10 @@
-import { request, APIRequestContext, expect } from '@playwright/test';
+import { APIRequestContext, expect } from '@playwright/test';
+import { AddItemScenario } from '../types';
 
 const apiBaseUrl = process.env.API_BASE_URL!;
 const items = '/cart/items';
 const cart = '/cart'; 
 const remove = 'cart/items/'
-
-export type AddItemScenario = 'happyFlow' | 'outOfStock' | 'insufficientStock' | 'productNotFound' | 'invalidQuantity';
 
 export async function addItemToCart(
   scenario: AddItemScenario,
