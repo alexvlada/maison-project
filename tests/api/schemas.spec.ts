@@ -39,7 +39,7 @@ test.describe('Schema validation', () => {
     const result = await getProductById(apiContext, 1);
     const product = result.product || result;
 
-    await validateSchema({ page }, product, productDetailSchema);
+    await validateSchema({}, product, productDetailSchema);
 
     expect(product.id).toBe(1);
     expect(product.name).toBe('Noir Saffiano Tote');
@@ -48,7 +48,7 @@ test.describe('Schema validation', () => {
   test('GET /products - ProductList schema', async ({ page }) => {
     const result = await getProducts(apiContext);
 
-    await validateSchema({ page }, result, productListSchema);
+    await validateSchema({}, result, productListSchema);
 
     expect(result.products.length).toBeGreaterThan(0);
   });
@@ -65,7 +65,7 @@ test.describe('Schema validation', () => {
     const result = await getOrderByReference(apiContext, order.reference);
     const fetchedOrder = result.order || result;
 
-    await validateSchema({ page }, fetchedOrder, orderSchema);
+    await validateSchema({}, fetchedOrder, orderSchema);
 
     expect(fetchedOrder.reference).toBe(order.reference);
   });
@@ -75,7 +75,7 @@ test.describe('Schema validation', () => {
     const result = await userData.getCurrentUser(apiContext);
     const user = result.user || result;
 
-    await validateSchema({ page }, user, userMeSchema);
+    await validateSchema({}, user, userMeSchema);
 
     expect(user.email).toBe('buyer@maison.test');
   });
@@ -83,7 +83,7 @@ test.describe('Schema validation', () => {
   test('GET /cart - Cart schema', async ({ page }) => {
     const result = await getCart(apiContext);
 
-    await validateSchema({ page }, result, cartSchema);
+    await validateSchema({}, result, cartSchema);
 
     expect(result.cart).toBeDefined();
   });
@@ -91,7 +91,7 @@ test.describe('Schema validation', () => {
   test('GET /orders - OrdersList schema', async ({ page }) => {
     const result = await getOrders(apiContext);
 
-    await validateSchema({ page }, result, ordersListSchema);
+    await validateSchema({}, result, ordersListSchema);
 
     expect(result.orders.length).toBeGreaterThanOrEqual(0);
   });
@@ -117,7 +117,7 @@ test.describe('Schema validation', () => {
     const body = await response.json();
 
     // 3. Error schema validation
-    await validateSchema({ page }, body, errorSchema);
+    await validateSchema({}, body, errorSchema);
 
     expect(body.error.code).toBe('EMPTY_CART');
   });
