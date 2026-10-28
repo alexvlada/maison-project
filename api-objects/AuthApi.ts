@@ -98,6 +98,10 @@ async newUserRegistration(scenario: RegistrationScenario,
               
             {
               expectedStatus = 0;
+              console.log('❌ Status:', status);
+              console.log('❌ Code:', code);
+              console.log('❌ Message:', message);
+              console.log('❌ Body:', JSON.stringify(body, null, 2));
             }
 
         }
