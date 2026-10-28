@@ -14,12 +14,12 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.BASE_URL,
-    headless: false,
+    headless: true,   // ← default: headless for all
   },
 
   projects: [
     // ============================================
-    // UI TESTS - all three browsers
+    // UI TESTS - headed locally, headless at CI
     // ============================================
     {
       name: 'chromium',
@@ -27,34 +27,42 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         channel: 'chrome',
+        headless: process.env.CI ? true : false,   // ← headed locally
       },
     },
     {
       name: 'firefox',
       testDir: './tests/ui',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        headless: process.env.CI ? true : false,
+      },
     },
     {
       name: 'webkit',
       testDir: './tests/ui',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    // ============================================
-    // API TESTS - only once, without a browser
-    // ============================================
-    {
-      name: 'api',
-      testDir: './tests/api',
-      fullyParallel: false,   // ← dodaj ovo
-      workers: 1,             // ← dodaj ovo
       use: {
-        baseURL: process.env.API_BASE_URL,
+        ...devices['Desktop Safari'],
+        headless: process.env.CI ? true : false,
       },
     },
 
     // ============================================
-    // E2E TESTS
+    // API TESTS - uvek headless (schema koristi page)
+    // ============================================
+    {
+      name: 'api',
+      testDir: './tests/api',
+      fullyParallel: false,
+      workers: 1,
+      use: {
+        baseURL: process.env.API_BASE_URL,
+        headless: true,   // ← uvek headless
+      },
+    },
+
+    // ============================================
+    // E2E TESTS - always headless
     // ============================================
     {
       name: 'e2e',
@@ -63,8 +71,8 @@ export default defineConfig({
       workers: 1,
       use: {
         baseURL: process.env.API_BASE_URL,
+        headless: true,   // ← always headless
       },
     },
-
   ],
 });
