@@ -41,7 +41,7 @@ npm install
 
 ### Environment variables
 
-Create a `.env` file in the project root:
+Create a .env file in the project root:
 
 BASE_URL=http://localhost:4000
 API_BASE_URL=http://localhost:4000/api/v1/
