@@ -5,27 +5,27 @@ Comprehensive test suite for the Maison e-commerce demo application, built with 
 ## Project Structure
 
 maison-project/
-+-- api-objects/       # API Object Model
-+-- page-objects/      # Page Object Model
-+-- types/             # TypeScript types
-+-- utils/             # Helpers (fixture loader, test data)
-+-- fixtures/          # Test data (JSON)
-+-- schemas/           # JSON Schemas for validation
-+-- tests/
-�   +-- api/           # API tests
-�   +-- ui/            # UI tests
-�   +-- e2e/           # End-to-end tests
-�   +-- performance/   # k6 performance tests
-+-- playwright.config.ts
+├── api-objects/       # API Object Model
+├── page-objects/      # Page Object Model
+├── types/             # TypeScript types
+├── utils/             # Helpers (fixture loader, test data)
+├── fixtures/          # Test data (JSON)
+├── schemas/           # JSON Schemas for validation
+├── tests/
+│   ├── api/           # API tests
+│   ├── ui/            # UI tests
+│   ├── e2e/           # End-to-end tests
+│   └── performance/   # k6 performance tests
+└── playwright.config.ts
 
 ## Tech Stack
 
-- Playwright � UI, API, E2E testing
-- TypeScript � type safety
-- k6 � performance testing
-- AJV � JSON Schema validation
-- Faker � test data generation
-- Docker � Maison application
+- Playwright – UI, API, E2E testing
+- TypeScript – type safety
+- k6 – performance testing
+- AJV – JSON Schema validation
+- Faker – test data generation
+- Docker – Maison application
 
 ## Setup
 
@@ -68,21 +68,21 @@ npm run perf:smoke      # Performance smoke test
 ## Test Suites
 
 ### API Tests
-- Auth � register, login, me
-- Products � list, detail, categories, seller products
-- Cart � add, get, remove, clear
-- Orders � place, list, detail
+- Auth – register, login, me
+- Products – list, detail, categories, seller products
+- Cart – add, get, remove, clear
+- Orders – place, list, detail
 
 ### Schema Validation
 - 7 JSON Schemas validated with AJV
 - product-detail, product-list, order, orders-list, user-me, cart, error
 
 ### UI Tests
-- Registration � buyer, atelier, mandatory data validation
-- Login � buyer, atelier, invalid credentials
+- Registration – buyer, atelier, mandatory data validation
+- Login – buyer, atelier, invalid credentials
 
 ### E2E Tests
-- Full user journey: register ? login ? search ? checkout ? verify
+- Full user journey: register → login → search → checkout → verify
 
 ### Performance Tests (k6)
 
