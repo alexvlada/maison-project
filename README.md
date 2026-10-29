@@ -5,17 +5,17 @@ Comprehensive test suite for the Maison e-commerce demo application, built with 
 ## Project Structure
 
 maison-project/
-├── api-objects/       # API Object Model
-├── page-objects/      # Page Object Model
-├── types/             # TypeScript types
-├── utils/             # Helpers (fixture loader, test data)
-├── fixtures/          # Test data (JSON)
-├── schemas/           # JSON Schemas for validation
-├── tests/
-│   ├── api/           # API tests
-│   ├── ui/            # UI tests
-│   ├── e2e/           # End-to-end tests
-│   └── performance/   # k6 performance tests
+├── api-objects/ # API Object Model 
+├── page-objects/ # Page Object Model 
+├── types/ # TypeScript types 
+├── utils/ # Helpers (fixture loader, test data) 
+├── fixtures/ # Test data (JSON) 
+├── schemas/ # JSON Schemas for validation 
+├── tests/ 
+│ ├── api/ # API tests 
+│ ├── ui/ # UI tests 
+│ ├── e2e/ # End-to-end tests 
+│ └── performance/ # k6 performance tests 
 └── playwright.config.ts
 
 ## Tech Stack
@@ -43,8 +43,8 @@ npm install
 
 Create a .env file in the project root:
 
-BASE_URL=http://localhost:4000
-API_BASE_URL=http://localhost:4000/api/v1/
+BASE_URL=http://localhost:4000 
+API_BASE_URL=http://localhost:4000/api/v1/ 
 NEW_USER_PASSWORD=TestPassword123!
 
 | Variable | Description | Example |
